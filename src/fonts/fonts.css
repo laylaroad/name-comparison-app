@@ -1,0 +1,8 @@
+@font-face {
+  font-family: "BellotaText";
+  src: url("BellotaText-Bold.ttf") format("ttf"),
+    url("BellotaText-Regular.ttf") format("ttf");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}

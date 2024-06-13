@@ -5,6 +5,14 @@ const womanNames = [
   "Прасковья", "Агриппина", "Глафира", "Алевтина", "Евдокия", "Матрона", "Серафима", "Суссана", "Фёкла", "Октябрина", "Евлампия", "Анфиса", "Августа", "Алмаза", "Амвросия", "Мстислава", "Павлина", "Таисия", "Юнона", "Рассказа"
 ];
 
+const ProgressBar = ({ progress }) => {
+  return (
+    <div className="progress-bar">
+      <div className="progress-bar-fill" style={{ width: `${progress}%` }} />
+    </div>
+  );
+};
+
 const App = () => {
   const [currentRound, setCurrentRound] = useState([]);
   const [currentPairIndex, setCurrentPairIndex] = useState(0);
@@ -19,10 +27,10 @@ const App = () => {
   useEffect(() => {
     if (roundComplete) {
       if (selectedIndices.length === 1) {
-        //Winner is not found
+        // Winner found
         setCurrentRound(selectedIndices.map(index => currentRound.find(item => item.index === index)));
       } else {
-        //Start of the next round
+        // Start of the next round
         const newRound = selectedIndices.map(index => currentRound.find(item => item.index === index));
         setCurrentRound(newRound);
         setSelectedIndices([]);
@@ -43,13 +51,16 @@ const App = () => {
 
   const currentPair = currentRound.slice(currentPairIndex * 2, currentPairIndex * 2 + 2);
 
+  const progress = (currentPairIndex / Math.floor(currentRound.length / 2)) * 100;
+
   return (
     <div className="App">
       <h1 className="App-title">Самое необычное женское имя?</h1>
+      <ProgressBar progress={progress} />
       {currentRound.length > 1 ? (
         currentPair.length === 2 ? (
           <div>
-            <p>Я выбираю:</p>
+            <p className="App-text">Я выбираю:</p>
             <button className="App-button" onClick={() => handleSelect(currentPair[0].index)}>
               {currentPair[0].name}
             </button>
@@ -58,10 +69,10 @@ const App = () => {
             </button>
           </div>
         ) : (
-          <p>Ошибка: Пара не сформирована должным образом</p>
+          <p className="App-text">Ошибка: Пара не сформирована должным образом</p>
         )
       ) : (
-        <p>Наш победитель: {currentRound[0]?.name}</p>
+        <p className="App-text">Наш победитель: {currentRound[0]?.name}</p>
       )}
     </div>
   );
