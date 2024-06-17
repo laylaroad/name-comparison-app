@@ -7,14 +7,6 @@ This project is just a plain react application that compares pairs of names to d
 - JavaScript
 - React
 
-## Getting Started
-
-Follow these instructions to get a copy of the project up and running on your device.
-
-### Prerequisites
-
-- Node.js (v14 or higher)
-- npm (v6 or higher)
 
 ### Installation
 
@@ -36,12 +28,4 @@ To start the development server:
 
 ```bash
 npm start
- ```
-
-### Building the Application
-
-To create a production build:
-
-```bash
-npm run build
  ```
