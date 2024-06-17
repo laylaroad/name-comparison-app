@@ -11,13 +11,11 @@ This project is just a plain react application that compares pairs of names to d
 ### Installation
 
  Install all dependencies:
-   ```
+   ```bash
    npm install
     ```
-
+  ```
 ### Running the Application
-
-To start the development server:
 
 ```bash
 npm start
