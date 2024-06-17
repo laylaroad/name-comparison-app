@@ -20,26 +20,28 @@ Follow these instructions to get a copy of the project up and running on your de
 
 1. Clone the repository:
 
-   \```bash
+   ```bash
    git clone https://github.com/yourusername/name-comparison-app.git
    cd name-comparison-app
+    ```
 
 2. Install dependencies:
-   \```
+   ```
    npm install
+    ```
 
 ### Running the Application
 
 To start the development server:
 
-\```bash
+```bash
 npm start
-\```
+ ```
 
 ### Building the Application
 
 To create a production build:
 
-\```bash
+```bash
 npm run build
-\```
+ ```
