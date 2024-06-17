@@ -27,10 +27,8 @@ const App = () => {
   useEffect(() => {
     if (roundComplete) {
       if (selectedIndices.length === 1) {
-        // Winner found
         setCurrentRound(selectedIndices.map(index => currentRound.find(item => item.index === index)));
       } else {
-        // Start of the next round
         const newRound = selectedIndices.map(index => currentRound.find(item => item.index === index));
         setCurrentRound(newRound);
         setSelectedIndices([]);
@@ -69,7 +67,7 @@ const App = () => {
             </button>
           </div>
         ) : (
-          <p className="App-text">Ошибка: Пара не сформирована должным образом</p>
+          <p className="App-text">Ошибка</p>
         )
       ) : (
         <p className="App-text">Наш победитель: {currentRound[0]?.name}</p>
