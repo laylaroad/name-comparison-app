@@ -10,14 +10,7 @@ This project is just a plain react application that compares pairs of names to d
 
 ### Installation
 
-1. Clone the repository:
-
-   ```bash
-   git clone https://github.com/yourusername/name-comparison-app.git
-   cd name-comparison-app
-    ```
-
-2. Install dependencies:
+ Install all dependencies:
    ```
    npm install
     ```
