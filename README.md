@@ -13,7 +13,7 @@ This project is just a plain react application that compares pairs of names to d
  Install all dependencies:
    ```bash
    npm install
-    ```
+    
   ```
 ### Running the Application
 
