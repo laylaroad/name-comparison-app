@@ -2,8 +2,12 @@ import './App.css';
 import React, { useState, useEffect } from 'react';
 
 const womanNames = [
-  "Прасковья", "Агриппина", "Глафира", "Алевтина", "Евдокия", "Матрона", "Серафима", "Суссана", "Фёкла", "Октябрина", "Евлампия", "Анфиса", "Августа", "Алмаза", "Амвросия", "Мстислава", "Павлина", "Таисия", "Юнона", "Рассказа"
+  "Прасковья", "Агриппина", "Глафира", "Алевтина", "Евдокия", "Матрона", "Серафима", "Суссана", "Фёкла", "Октябрина", "Евлампия", "Анфиса", "Августа", "Алмаза", "Амвросия", "Мстислава", "Павлина", "Таисия", "Юнона", "Зоя", "Рассказа", "Тереза", "Голуба", "Услада", "Дельфина", "Фрося", "Мотя", "Базилика", "Богдана"
 ];
+
+const shuffleArray = (array) => {
+  return array.sort(() => Math.random() - 0.5);
+};
 
 const ProgressBar = ({ progress }) => {
   return (
@@ -13,23 +17,36 @@ const ProgressBar = ({ progress }) => {
   );
 };
 
+const calculateTotalRounds = (length) => {
+  let rounds = 0;
+  while (length > 1) {
+    rounds += length;
+    length = Math.ceil(length / 2);
+  }
+  return rounds;
+};
+
 const App = () => {
   const [currentRound, setCurrentRound] = useState([]);
   const [currentPairIndex, setCurrentPairIndex] = useState(0);
   const [selectedIndices, setSelectedIndices] = useState([]);
   const [roundComplete, setRoundComplete] = useState(false);
+  const [completedRounds, setCompletedRounds] = useState(0);
+  const [totalRounds, setTotalRounds] = useState(0);
 
   useEffect(() => {
-    const initialRound = womanNames.map((name, index) => ({ name, index }));
+    const initialRound = shuffleArray(womanNames.map((name, index) => ({ name, index })));
     setCurrentRound(initialRound);
+    setTotalRounds(calculateTotalRounds(initialRound.length));
   }, []);
 
   useEffect(() => {
     if (roundComplete) {
+      setCompletedRounds(prev => prev + currentRound.length);
       if (selectedIndices.length === 1) {
         setCurrentRound(selectedIndices.map(index => currentRound.find(item => item.index === index)));
       } else {
-        const newRound = selectedIndices.map(index => currentRound.find(item => item.index === index));
+        const newRound = shuffleArray(selectedIndices.map(index => currentRound.find(item => item.index === index)));
         setCurrentRound(newRound);
         setSelectedIndices([]);
         setCurrentPairIndex(0);
@@ -49,7 +66,7 @@ const App = () => {
 
   const currentPair = currentRound.slice(currentPairIndex * 2, currentPairIndex * 2 + 2);
 
-  const progress = (currentPairIndex / Math.floor(currentRound.length / 2)) * 100;
+  const progress = ((completedRounds + currentPairIndex) / totalRounds) * 100;
 
   return (
     <div className="App">
