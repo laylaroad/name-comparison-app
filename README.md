@@ -8,7 +8,7 @@ This project is just a plain react application that compares pairs of names to d
 
 - TypeScript
 - React
-  – Vercel
+– Vercel
 
 ### Installation
 
