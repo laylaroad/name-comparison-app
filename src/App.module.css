@@ -1,4 +1,4 @@
-.App {
+.app {
   text-align: center;
   display: flex;
   justify-content: center;
@@ -6,7 +6,7 @@
   margin: 200px auto;
 }
 
-.App-title {
+.app_title {
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -17,7 +17,7 @@
   font-style: normal;
 }
 
-.App-text {
+.app_text {
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -28,7 +28,7 @@
   font-style: normal;
 }
 
-.App-button {
+.app_button {
   margin: 10px;
   padding: 10px 20px;
   font-size: 16px;
@@ -40,12 +40,12 @@
   transition: background 0.3s, box-shadow 0.3s;
 }
 
-.App-button:hover {
+.app_button:hover {
   background: linear-gradient(45deg, #f06595, #ff6b6b);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-.progress-bar {
+.progress_bar {
   width: 80%;
   background-color: #e0e0e0;
   border-radius: 5px;
@@ -53,7 +53,7 @@
   overflow: hidden;
 }
 
-.progress-bar-fill {
+.progress_bar_fill {
   height: 20px;
   background-color: #f86b9de5;
   width: 0;
